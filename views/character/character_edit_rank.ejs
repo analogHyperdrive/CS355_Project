@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></title>
+</head>
+<body>
+<h1>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></h1>
+<form action="/character/updaterank" method="get">
+    <input type="hidden" id="character_id" name="character_id" value="<%= character_result.character_id%>">
+    Rank:
+    <select name="rank_id">
+        <% for(var i=0; rank_result.length > i; i++ ) {
+        var selected = ""
+        if (character_result.rank_id === rank_result[i].rank_id) {
+            selected = "selected";
+        }%>
+        <option type="select" <%= selected %> value="<%= rank_result[i].rank_id %>"> <%= rank_result[i].rank_name %>
+            <br />
+            <% } %>
+        </option>
+    </select>
+    <input type="submit" />
+</form>
+</body>
+</html>

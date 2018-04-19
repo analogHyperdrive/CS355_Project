@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Rank List</title>
+</head>
+<body>
+<h1>Ranks:</h1>
+<a href="/rank/add">Add New Rank:</a> <br />
+<table border="1">
+    <tr><th>Rank Name</th><th>Actions</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].rank_name %>
+        </td>
+        <td>
+            <a href='/rank/view/?rank_id=<%= result[i].rank_id %>'>
+                View
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

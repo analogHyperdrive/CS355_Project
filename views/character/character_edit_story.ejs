@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></title>
+</head>
+<body>
+<h1>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></h1>
+<form action="/character/updatestory" method="get">
+    <input type="hidden" id="character_id" name="character_id" value="<%= character_result.character_id%>">
+    MSQ Completion:
+    <select name="msq_complete">
+        <% var selected = "";
+        if (character_result.story_completion === 2.0)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=2.0> <%= "2.0: A Realm Reborn"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 2.1)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=2.1> <%= "2.1: A Realm Awoken"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 2.2)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=2.2> <%= "2.2: Through the Malestrom"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 2.3)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=2.3> <%= "2.3: Defenders of Eorzia"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 2.4)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=2.4> <%= "2.4: Dreams of Ice"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 2.5)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=2.5> <%= "2.5: Before the Fall"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 3.0)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=3.0> <%= "3.0: Heavensward"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 3.1)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=3.1> <%= "3.1: As Goes Light, So Goes Darkness"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 3.2)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=3.2> <%= "3.2: The Gears of Change"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 3.3)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=3.3> <%= "3.3: Revenge of the Horde"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 3.4)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=3.4> <%= "3.4: Soul Surrender"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 3.5)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=3.5> <%= "3.5: The Far Edge of Fate"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 4.0)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=4.0> <%= "4.0: Stormblood"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 4.1)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=4.1> <%= "4.1: The Legend Returns"%>
+        </option>
+        <% var selected = "";
+        if (character_result.story_completion === 4.2)
+            selected = "selected"%>
+        <option type="select" <%= selected %> value=4.2> <%= "4.2: Rise of a New Sun"%>
+        </option>
+    </select>
+    <input type="submit" />
+</form>
+</body>
+</html>

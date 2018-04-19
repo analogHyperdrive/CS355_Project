@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Rank</title>
+</head>
+<body>
+<h1>Add New Rank</h1>
+<form action="/rank/insert" method="get">
+    Name: <input name="name" type="text" />
+    <br />
+    Privleges:
+    <br />
+    <% for(var i=0; privlege_result.length > i; i++ ) { %>
+    <input type="checkbox" name="privlege_id" value="<%= privlege_result[i].privlege_id %>"> <%= privlege_result[i].privlege_name %>
+    <br />
+    <% } %>
+    <input type="submit" />
+</form>
+</body>
+</html>

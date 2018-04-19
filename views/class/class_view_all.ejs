@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Classes</title>
+</head>
+<body>
+<h1>Classes:</h1>
+<a href="/class/add">Add New Class</a> <br />
+<table border="1">
+    <tr><th>Class Name</th><th>Class Role</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].class_name %>, <%= result[i].class_acronym %>
+        </td>
+        <td>
+            <%= result[i].class_role %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Roster</title>
+</head>
+<body>
+<h1>Roster:</h1>
+<a href="/character/add">Add New Member</a> <br />
+<table border="1">
+    <tr><th>Character Name</th><th>Actions</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].first_name %> <%= result[i].last_name %>
+        </td>
+        <td>
+            <a href='/character/view/?character_id=<%= result[i].character_id %>'>
+                View
+            </a>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

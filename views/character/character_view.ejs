@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Character - <%= character_result.first_name %> <%= character_result.last_name %></title>
+</head>
+<body>
+<h1>View Character: <%= character_result.first_name %> <%= character_result.last_name %></h1>
+<% if(character_result.character_id != main_result.character_id) { %>
+Alt of <%= main_result.first_name %> <%= main_result.last_name %>
+<% } else { %>
+This character is a Main Character
+<% } %>
+<br />
+<a href='/character/editbase/?character_id=<%= character_result.character_id %>'>
+    Edit Name and Main
+</a>
+<br />
+<br />
+Rank: <%= character_result.rank_name%>
+<br />
+<a href='/character/editrank/?character_id=<%= character_result.character_id %>'>
+    Change Rank
+</a>
+<br />
+<br />
+Story Completion: Up to <%= character_result.story_completion %>
+<br />
+<a href='/character/editstory/?character_id=<%= character_result.character_id %>'>
+    Edit MSQ completion
+</a>
+<br />
+<br />
+Intrests:
+<br />
+<% if(intrest_result[0].intrest_id) {
+for(var i = 0; i < intrest_result.length; i++) { %>
+<%= intrest_result[i].description %>
+<a href='/character/editintrest/?intrest_id=<%= intrest_result[i].intrest_id %>&character_id=<%= character_result.character_id %>'>
+Edit Intrest
+</a>
+<br />
+<% } } %>
+<a href='/character/addintrest/?character_id=<%= character_result.character_id %>'>
+Add Intrest
+</a>
+<br />
+<br />
+<% if (!class_result) { %>
+No Notable Classes
+<a href='/character/editclass/?character_id=<%= character_result.character_id %>'>
+    Add Classes
+</a>
+<% } else { %>
+    Notable Classes:
+<br />
+<% for(var j = 0; j < class_result.length; j++) { %>
+<%= class_result[j].class_acronym %>: <%= class_result[j].class_level %>
+<br />
+<% } %>
+<a href='/character/editclass/?character_id=<%= character_result.character_id %>'>
+    Edit Classes
+</a>
+<br />
+<% } %>
+<br />
+<% if(character_result.note) { %>
+<%= character_result.note %>
+<br />
+<a href='/character/editnote/?character_id=<%= character_result.character_id %>'>
+    Edit Note
+</a>
+<% } else { %>
+<a href='/character/editnote/?character_id=<%= character_result.character_id %>'>
+    Add Note
+</a>
+<% } %>
+<br />
+</body>
+</html>

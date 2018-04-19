@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></title>
+</head>
+<body>
+<h1>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></h1>
+<form action="/character/updaterank" method="get">
+    <input type="hidden" id="character_id" name="character_id" value="<%= character_result.character_id%>">
+    <% if (character_result.note) {%>
+    Note: <input style="width:500px;" id="note" name="note" type="text" value="<%= character_result.note%>">
+    <% } else { %>
+    Note: <input style="width:500px;" id="note" name="note" type="text">
+    <% } %>
+    <input type="submit" />
+</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Rank - <%= rank_result.rank_name %></title>
+</head>
+<body>
+<h1>View Rank - <%= rank_result.rank_name %></h1>
+Privleges:
+<br />
+<% for(var i = 0; i < privlege_result.length; i++) {
+if (privlege_result[i].rank_id === rank_result.rank_id) { %>
+<%= privlege_result[i].privlege_name %>
+<br />
+<% } } %>
+</body>
+</html>

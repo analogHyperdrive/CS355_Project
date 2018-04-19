@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Intrest of <%= character_result.first_name%> <%= character_result.last_name%></title>
+</head>
+<body>
+<h1>Update Intrest of <%= character_result.first_name%> <%= character_result.last_name%></h1>
+<form action="/character/updateintrest" method="get">
+    <input type="hidden" id="character_id" name="character_id" value="<%= character_result.character_id%>">
+    <input type="hidden" id="intrest_id" name="intrest_id" value="<%= intrest_result.intrest_id%>">
+    Intrest: <input id="intrest_description" name="intrest_description" type="text" value="<%= intrest_result.description%>">
+    <input type="submit" />
+</form>
+</body>
+</html>

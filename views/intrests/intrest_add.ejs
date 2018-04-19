@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Intrest to <%= character_result.first_name%> <%= character_result.last_name%></title>
+</head>
+<body>
+<h1>Add Intrest to <%= character_result.first_name%> <%= character_result.last_name%></h1>
+<form action="/character/insertintrest" method="get">
+    <input type="hidden" id="character_id" name="character_id" value="<%= character_result.character_id%>">
+    Intrest: <input id="intrest_description" name="intrest_description" type="text">
+    <input type="submit" />
+</form>
+</body>
+</html>

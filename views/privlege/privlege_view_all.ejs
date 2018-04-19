@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Prvlege List</title>
+</head>
+<body>
+<h1>Privleges:</h1>
+<a href="/privlege/add">Add New Privlege:</a> <br />
+<table border="1">
+    <tr><th>Privlege</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].privlege_name %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

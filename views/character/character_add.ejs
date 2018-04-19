@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Character</title>
+</head>
+<body>
+<h1>Add New Character</h1>
+<form action="/character/insert" method="get">
+    Character Name:
+    <br />
+    First: <input name="first_name" type="text" />
+    <br />
+    Last: <input name="last_name" type="text" />
+    <br />
+    Rank:
+    <select name="rank_id">
+        <% for(var i=0; rank_result.length > i; i++ ) { %>
+        <option type="select" value="<%= rank_result[i].rank_id %>"> <%= rank_result[i].rank_name %>
+            <br />
+            <% } %>
+        </option>
+    </select>
+    <br />
+    Main Character?
+    <select name="main_id">
+        <option type="select" value="MAIN"> <%= "This is a Main Character"%>
+        </option>
+        <% for(var i=0; character_result.length > i; i++ ) { %>
+        <option type="select" value="<%= character_result[i].character_id %>"> <%= character_result[i].first_name + ' '
+            + character_result[i].last_name %>
+        </option>
+        <br />
+        <% } %>
+    </select>
+    <br />
+    MSQ Completion:
+    <select name="msq_complete">
+        <option type="select" value=2.0> <%= "2.0: A Realm Reborn"%>
+        </option>
+        <option type="select" value=2.1> <%= "2.1: A Realm Awoken"%>
+        </option>
+        <option type="select" value=2.2> <%= "2.2: Through the Malestrom"%>
+        </option>
+        <option type="select" value=2.3> <%= "2.3: Defenders of Eorzia"%>
+        </option>
+        <option type="select" value=2.4> <%= "2.4: Dreams of Ice"%>
+        </option>
+        <option type="select" value=2.5> <%= "2.5: Before the Fall"%>
+        </option>
+        <option type="select" value=3.0> <%= "3.0: Heavensward"%>
+        </option>
+        <option type="select" value=3.1> <%= "3.1: As Goes Light, So Goes Darkness"%>
+        </option>
+        <option type="select" value=3.2> <%= "3.2: The Gears of Change"%>
+        </option>
+        <option type="select" value=3.3> <%= "3.3: Revenge of the Horde"%>
+        </option>
+        <option type="select" value=3.4> <%= "3.4: Soul Surrender"%>
+        </option>
+        <option type="select" value=3.5> <%= "3.5: The Far Edge of Fate"%>
+        </option>
+        <option type="select" value=4.0> <%= "4.0: Stormblood"%>
+        </option>
+        <option type="select" value=4.1> <%= "4.1: The Legend Returns"%>
+        </option>
+        <option type="select" value=4.2> <%= "4.2: Rise of a New Sun"%>
+        </option>
+    </select>
+    <br />
+    Classes:
+    <br />
+    <% for(var i=0; class_result.length > i; i++ ) { %>
+    <input type="hidden" id="class_id" name="class_id" value="<%= class_result[i].class_id %>">
+    <%= class_result[i].class_name %>
+    Level <input name="class_level" type="number" />
+    <br />
+    <% } %>
+
+    <br />
+    <input type="submit" />
+</form>
+</body>
+</html>

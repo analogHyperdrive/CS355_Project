@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></title>
+</head>
+<body>
+<h1>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></h1>
+<form action="/character/updatebase" method="get">
+    <input type="hidden" id="character_id" name="character_id" value="<%= character_result.character_id%>">
+    Character Name:
+    <br />
+    First: <input id="first_name" name="first_name" type="text" value="<%= character_result.first_name%>">
+    <br />
+    Last: <input id="last_name" name="last_name" type="text" value="<%= character_result.last_name%>">
+    <br />
+    Main Character?
+    <select name="main_id">
+        <% var selected = "";
+        if (character_result.character_id === character_result.main_id)
+            selected = "selected"
+        %>
+        <option type="select" <%= selected %> value="<%=character_result.character_id%>"> This is a Main Character
+        </option>
+        <% for(var i=0; main_result.length > i; i++ ) {
+            var selected = ""
+            if (character_result.main_id === main_result[i].character_id)
+                selected = "selected"
+        %>
+        <option type="select" <%= selected %> value="<%= main_result[i].character_id %>"> <%= main_result[i].first_name + ' '
+            + main_result[i].last_name %>
+        </option>
+        <br />
+        <% } %>
+    </select>
+    <br />
+    <input type="submit" />
+</form>
+</body>
+</html>

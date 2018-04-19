@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></title>
+</head>
+<body>
+<h1>Update Character - <%= character_result.first_name%> <%= character_result.last_name%></h1>
+<form action="/character/updateclass" method="get">
+    <input type="hidden" id="character_id" name="character_id" value="<%= character_result.character_id%>">
+    Classes:
+    <br />
+    <% for(var i=0; class_result.length > i; i++ ) { %>
+    <input type="hidden" id="class_id" name="class_id" value="<%= class_result[i].class_id %>">
+    <%= class_result[i].class_name %>
+    <% if (class_result[i].character_id === character_result.character_id)  { %>
+    Level <input name="class_level" type="number" value="<%= class_result[i].class_level %>"/>
+    <br />
+    <% } else { %>
+    Level <input name="class_level" type="number" />
+    <br />
+    <% } } %>
+    <input type="submit" />
+</form>
+</body>
+</html>
