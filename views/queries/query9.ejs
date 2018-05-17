@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query 9</title>
+</head>
+<body>
+<h1>A query using a UNION</h1>
+Query: <br />
+SELECT description FROM intrests <br />
+UNION <br />
+SELECT rank_name FROM rank; <br /> <br />
+Explanation: Returns a list of the names of all intrests and ranks <br /> <br />
+Result:
+<table border="1">
+    <tr><th>description</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].description %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Rank: <%= rank_result.rank_name%></title>
+</head>
+<body>
+<h1>Update Rank: <%= rank_result.rank_name%></h1>
+<form action="/rank/update" method="get">
+    <input type="hidden" id="rank_id" name="rank_id" value="<%= rank_result.rank_id%>">
+    Name: <input id="rank_name" name="rank_name" type="text" value="<%= rank_result.rank_name%>"> <br />
+    <br />
+    Privleges:
+    <br />
+    <% for(var i=0; privlege_result.length > i; i++ ) {
+        var checked = "";
+        if(privlege_result[i].rank_id != null) {
+            checked = "checked";
+        }
+    %>
+    <input type="checkbox" name="privlege_id" <%= checked %> value="<%= privlege_result[i].privlege_id %>"> <%= privlege_result[i].privlege_name %>
+    <br />
+    <% } %>
+    <input type="submit" />
+</form>
+</body>
+</html>

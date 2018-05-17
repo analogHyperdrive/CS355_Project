@@ -22,4 +22,22 @@ router.get('/insert', function(req, res) {
     });
 });
 
+router.get('/edit', function(req, res) {
+    privlege_dal.getPrivlege(req.query.privlege_id, function(err, result) {
+        res.render('privlege/privlege_edit', {result:result[0]});
+    });
+});
+
+router.get('/update', function(req, res) {
+    privlege_dal.update(req.query, function(err, result) {
+        res.redirect('/privlege/all');
+    });
+});
+
+router.get('/delete', function(req, res) {
+    privlege_dal.delete(req.query.privlege_id, function(err, result) {
+        res.redirect('/privlege/all');
+    });
+});
+
 module.exports = router;

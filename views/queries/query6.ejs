@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query 6</title>
+</head>
+<body>
+<h1>A query using GROUP BY</h1>
+Query:<br />
+SELECT first_name, last_name, COUNT(main_id) - 1 AS alt_no FROM player_character<br />
+GROUP BY main_id; <br /> <br />
+Explanation: Returns the number of alts for each main character <br /> <br />
+Result:
+<table border="1">
+    <tr><th>first_name</th><th>last_name</th><th>alt_no</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].first_name %>
+        </td>
+        <td>
+            <%= result[i].last_name %>
+        </td>
+        <td>
+            <%= result[i].alt_no %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

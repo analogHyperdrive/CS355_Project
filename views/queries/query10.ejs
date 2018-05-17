@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query 10</title>
+</head>
+<body>
+<h1>A query using DISTINCT</h1>
+Query:<br />
+SELECT COUNT(DISTINCT main_id) AS FC_roster FROM player_character; <br /> <br />
+Explanation: Returns the number of main characters in the Free Company <br /> <br />
+Result:
+<table border="1">
+    <tr><th>FC_roster</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].FC_roster %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

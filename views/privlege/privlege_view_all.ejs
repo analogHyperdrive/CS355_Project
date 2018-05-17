@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Prvlege List</title>
+    <title>View Privilege List</title>
 </head>
 <body>
 <h1>Privleges:</h1>
-<a href="/privlege/add">Add New Privlege:</a> <br />
+<a href="/privlege/add">Add New Privilege:</a> <br />
 <table border="1">
-    <tr><th>Privlege</th></tr>
+    <tr><th>Privilege</th></tr>
     <% for(var i = 0; i < result.length; i++) { %>
     <tr>
         <td>
             <%= result[i].privlege_name %>
         </td>
+        <td>
+            <a href='/privlege/edit/?privlege_id=<%= result[i].privlege_id %>'>
+                Edit
+            </a>
+            <a href='/privlege/delete/?privlege_id=<%= result[i].privlege_id %>'>
+                Delete
+            </a>
+        </td>
     </tr>
     <% } %>
 </table>
+Note: A privlege cannot be deleted if it is listed as a privlege on any rank.
 </body>
 </html>

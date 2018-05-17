@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query 7</title>
+</head>
+<body>
+<h1>A query utilizing a JOIN, GROUP BY, HAVING and an derived function (avg, min, max, etc.)</h1>
+Query:<br />
+SELECT c.first_name, c.last_name, SUM(cc.class_level) AS total_class_level FROM player_character c<br />
+JOIN character_class cc ON c.character_id = cc.character_id<br />
+GROUP BY c.character_id<br />
+HAVING COUNT(c.character_id) > 1; <br /> <br />
+Explanation: Returns the names and sum of all notable class levels from all characters who have more than one notable class <br /> <br />
+Result:
+<table border="1">
+    <tr><th>first_name</th><th>last_name</th><th>total_class_level</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].first_name %>
+        </td>
+        <td>
+            <%= result[i].last_name %>
+        </td>
+        <td>
+            <%= result[i].total_class_level %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

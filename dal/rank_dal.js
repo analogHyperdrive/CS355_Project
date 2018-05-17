@@ -50,3 +50,49 @@ exports.insert = function(params, callback) {
         }
     });
 };
+
+var rankPrivlegeInsert = function(rank_id, privlegeIdArray, callback){
+    var query = 'INSERT INTO rank_privlege (rank_id, privlege_id) VALUES ?';
+
+    var rankPrivlegeData = [];
+    if (privlegeIdArray.constructor === Array) {
+        for (var i = 0; i < privlegeIdArray.length; i++) {
+            rankPrivlegeData.push([rank_id, privlegeIdArray[i]]);
+        }
+    }
+    else {
+        rankPrivlegeData.push([rank_id, privlegeIdArray]);
+    }
+    connection.query(query, [rankPrivlegeData], function(err, result){
+        callback(err, result);
+    });
+};
+
+exports.update = function(params, callback) {
+    var query = 'UPDATE rank SET rank_name = ? WHERE rank_id = ?';
+    var queryData = [params.rank_name, params.rank_id];
+
+    connection.query(query, queryData, function (result) {
+        var query = 'CALL rank_privlege_delete(?)';
+
+        connection.query(query, params.rank_id, function (err, result) {
+            if (err) {
+                callback(err, result);
+            } else {
+                rankPrivlegeInsert(params.rank_id, params.privlege_id, callback);
+            }
+        })
+    });
+};
+
+exports.delete = function(rank_id, callback) {
+    var query = 'CALL rank_privlege_delete(?)';
+
+    connection.query(query, rank_id, function (result) {
+        var query = 'DELETE FROM rank WHERE rank_id = ?';
+
+        connection.query(query, rank_id, function (err, result) {
+            callback(err, result);
+        })
+    });
+};

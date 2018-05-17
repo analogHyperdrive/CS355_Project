@@ -191,5 +191,11 @@ router.get('/updatenote', function(req, res) {
     });
 });
 
+router.get('/delete', function(req, res) {
+    character_dal.delete(req.query.character_id, function(err, result) {
+        res.redirect('/character/all');
+    })
+});
+
 
 module.exports = router;

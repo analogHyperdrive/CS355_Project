@@ -7,7 +7,7 @@
 <h1>Classes:</h1>
 <a href="/class/add">Add New Class</a> <br />
 <table border="1">
-    <tr><th>Class Name</th><th>Class Role</th></tr>
+    <tr><th>Class Name</th><th>Class Role</th><th>Actions</th></tr>
     <% for(var i = 0; i < result.length; i++) { %>
     <tr>
         <td>
@@ -16,8 +16,17 @@
         <td>
             <%= result[i].class_role %>
         </td>
+        <td>
+            <a href='/class/edit/?class_id=<%= result[i].class_id %>'>
+                Edit
+            </a>
+            <a href='/class/delete/?class_id=<%= result[i].class_id %>'>
+                Delete
+            </a>
+        </td>
     </tr>
     <% } %>
 </table>
+Note: A class cannot be deleted if it is listed as a notable class on any character.
 </body>
 </html>

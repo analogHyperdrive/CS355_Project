@@ -42,4 +42,25 @@ router.get('/insert', function(req, res) {
     });
 });
 
+router.get('/edit', function(req, res) {
+    rank_dal.getInfo(req.query.rank_id, function(err,result) {
+        res.render('rank/rank_edit', {
+            rank_result:result[0][0],
+            privlege_result: result[1]
+        });
+    });
+});
+
+router.get('/update', function(req, res) {
+    rank_dal.update(req.query, function(err, result) {
+        res.redirect('/rank/view/?rank_id=' + res.req.query.rank_id);
+    });
+});
+
+router.get('/delete', function(req, res) {
+    rank_dal.delete(req.query.rank_id, function(err, result) {
+        res.redirect('/rank/all');
+    });
+});
+
 module.exports = router;

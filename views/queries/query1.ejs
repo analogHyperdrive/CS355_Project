@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query 1</title>
+</head>
+<body>
+<h1>A query using a correlated subquery</h1>
+Query: <br />
+SELECT first_name, last_name, COUNT(main_id) - 1 AS alt_no FROM player_character<br />
+GROUP BY main_id<br />
+HAVING COUNT(main_id) = (<br />
+&nbsp &nbsp SELECT MAX(a.count) FROM (<br />
+&nbsp &nbsp &nbsp &nbsp SELECT COUNT(main_id) AS count FROM player_character GROUP BY main_id) a); <br /> <br />
+Explanation: Returns the name and number of alts from the main character who has the greatest number of alts <br /> <br />
+Result:
+<table border="1">
+    <tr><th>first_name</th><th>last_name</th><th>alt_no</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].first_name %>
+        </td>
+        <td>
+            <%= result[i].last_name %>
+        </td>
+        <td>
+            <%= result[i].alt_no %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

@@ -5,7 +5,9 @@
 </head>
 <body>
 <h1>View Character: <%= character_result.first_name %> <%= character_result.last_name %></h1>
-<% if(character_result.character_id != main_result.character_id) { %>
+<% if(!main_result) { %>
+This character was associated with a removed main character. Please indicate if this character is a main or an alt.
+<% } else if(character_result.character_id != main_result.character_id) { %>
 Alt of <%= main_result.first_name %> <%= main_result.last_name %>
 <% } else { %>
 This character is a Main Character

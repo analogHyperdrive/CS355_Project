@@ -12,5 +12,8 @@ if (privlege_result[i].rank_id === rank_result.rank_id) { %>
 <%= privlege_result[i].privlege_name %>
 <br />
 <% } } %>
+<a href='/rank/edit/?rank_id=<%= rank_result.rank_id %>'>
+    Edit Rank
+</a>
 </body>
 </html>

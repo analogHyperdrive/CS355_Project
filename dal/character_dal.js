@@ -172,3 +172,35 @@ exports.updateClass = function(params, callback) {
         }
     });
 };
+
+var characterClassDelete = function(character_id, callback){
+    var query = 'CALL character_class_delete(?)';
+
+    connection.query(query, character_id, function(err, result){
+    });
+};
+
+var characterIntrestDelete = function(character_id, callback){
+    var query = 'CALL character_intrest_delete(?)';
+
+    connection.query(query, character_id, function(err, result){
+    });
+};
+
+var characterMainDelete = function(character_id, callback){
+    var query = 'CALL character_main_delete(?)';
+
+    connection.query(query, character_id, function(err, result){
+    });
+};
+
+exports.delete = function(character_id, callback) {
+    characterClassDelete(character_id, callback);
+    characterIntrestDelete(character_id, callback);
+    characterMainDelete(character_id, callback);
+    var query = 'DELETE FROM player_character WHERE character_id = ?';
+
+    connection.query(query, character_id, function(err, result) {
+        callback(err, result);
+    })
+};

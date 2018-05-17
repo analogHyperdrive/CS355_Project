@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Class: <%= result.class_name%></title>
+</head>
+<body>
+<h1>Update Class: <%= result.class_name%></h1>
+<form action="/class/update" method="get">
+    <input type="hidden" id="class_id" name="class_id" value="<%= result.class_id%>">
+    Class Name: <input id="class_name" name="class_name" type="text" value="<%= result.class_name%>"> <br />
+    Class Acronym: <input id="class_acronym" name="class_acronym" type="text" value="<%= result.class_acronym%>"> <br />
+    Class Role: <input id="class_role" name="class_role" type="text" value="<%= result.class_role%>"> <br />
+    <input type="submit" />
+</form>
+</body>
+</html>

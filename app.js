@@ -10,6 +10,7 @@ var character = require('./routes/character');
 var _class = require('./routes/class');
 var privlege = require('./routes/privlege');
 var rank = require('./routes/rank');
+var queries = require('./routes/queries');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/character', character);
 app.use('/class', _class);
 app.use('/privlege', privlege);
 app.use('/rank', rank);
+app.use('/queries', queries);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

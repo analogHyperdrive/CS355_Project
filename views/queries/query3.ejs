@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query 3</title>
+</head>
+<body>
+<h1>A query using a subquery with IN or NOT IN/h1>
+Query: <br />
+SELECT c.first_name, c.last_name FROM player_character c<br />
+WHERE c.character_id IN(<br />
+&nbsp &nbsp SELECT x.main_id FROM player_character x<br />
+&nbsp &nbsp WHERE x.main_id != x.character_id); <br /> <br />
+Explanation: Returns a list of all characters that have an assoicated alt <br /> <br />
+Result:
+<table border="1">
+    <tr><th>first_name</th><th>last_name</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].first_name %>
+        </td>
+        <td>
+            <%= result[i].last_name %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>

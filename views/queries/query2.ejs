@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query 2</title>
+</head>
+<body>
+<h1>A query using a subquery in a JOIN</h1>
+Query: <br />
+SELECT c.first_name, c.last_name, x.avg_level FROM player_character c<br />
+JOIN (<br />
+&nbsp &nbsp SELECT cc.character_id, AVG(cc.class_level) AS avg_level FROM character_class cc<br />
+&nbsp &nbsp GROUP BY cc.character_id) x<br />
+ON  c.character_id = x.character_id; <br /> <br />
+Explanation: Returns the names of each character along with the average of all their notable classes <br /> <br />
+Result:
+<table border="1">
+    <tr><th>first_name</th><th>last_name</th><th>avg_level</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td>
+            <%= result[i].first_name %>
+        </td>
+        <td>
+            <%= result[i].last_name %>
+        </td>
+        <td>
+            <%= result[i].avg_level %>
+        </td>
+    </tr>
+    <% } %>
+</table>
+</body>
+</html>
